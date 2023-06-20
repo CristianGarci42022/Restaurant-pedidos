@@ -1,0 +1,2120 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="queries.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="navegador">
+      <a href="index.html" class="logo">Logo</a>
+
+      <div class="toggle" id="toggle">
+        <span id="toggle"></span>
+        <span id="toggle"></span>
+        <span id="toggle"></span>
+      </div>
+
+      <ul class="nav_list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="menu.html">Menu</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+
+      <div class="carrito" id="cart-btn">
+        <i class="fa-solid fa-basket-shopping carrito-icon"></i>
+        <div class="contador-carrito">
+          <span class="num-contador">0</span>
+        </div>
+      </div>
+      <div class="shopping-cart">
+        <i class="fa-solid fa-xmark cerrarCarrito" style="color: orange"></i>
+        <h3 class="heading">Mi Carrito</h3>
+        <div class="box-scroll tbody"></div>
+        <div class="total">Total : $0</div>
+
+        <div class="opciones">
+          <label for="tipoPedido">Tipo de pedido:</label>
+          <select
+            id="tipoPedido"
+            name="tipoPedido"
+            class="tipoPedidoSelect"
+            onchange="mostrarCamposPedido()"
+          >
+            <option value="" disabled selected>Elija una opción</option>
+            <option value="mesa">Llevar a mesa</option>
+            <option value="llevar">Para llevar</option>
+            <option value="domicilio">Para llevar a domicilio</option>
+          </select>
+        </div>
+        <div
+          id="camposPedido"
+          class="campos-pedido"
+          style="display: flex; flex-direction: column"
+        ></div>
+
+        <button onclick="realizarPedido()">
+          Realizar pedido por WhatsApp
+          <i class="fa-brands fa-whatsapp" style="font-size: 1rem"></i>
+        </button>
+      </div>
+    </header>
+
+    <section>
+      <h1>Nuestro <span style="color: #ff8800">Menú</span></h1>
+
+      <!--------------- MENSAJE AGREGADO CARRITO --------------->
+      <!-------------------------------------------------------->
+      <div class="alert hide">
+        <span class="fas fa-check-circle"></span>
+        <span class="msg">¡Agregado al carrito!</span>
+        <span class="closeBtn">
+          <span class="fas fa-times"></span>
+        </span>
+      </div>
+
+      <div class="iconos_menu">
+        <div class="platillos_icon active" onclick="mostrarPlatillos()">
+          <i class="fas fa-utensils"></i>
+          <p>Platillos</p>
+        </div>
+        <div class="pizza_icon" onclick="mostrarPizzas()">
+          <i class="fa-solid fa-pizza-slice"></i>
+          <p>Pizzas</p>
+        </div>
+        <div class="hamburguesa_icon" onclick="mostrarBurguers()">
+          <i class="fa-solid fa-burger"></i>
+          <p>Hamburguesas</p>
+        </div>
+        <div class="bebidas_icon" onclick="mostrarBebidas()">
+          <i class="fa-solid fa-wine-glass"></i>
+          <p>Bebidas</p>
+        </div>
+        <div class="postres_icon" onclick="mostrarPostres()">
+          <i class="fa-solid fa-ice-cream"></i>
+          <p>Postres</p>
+        </div>
+      </div>
+
+      <div class="box_container">
+        <div class="platillos_container" id="platillosContainer">
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/asado.webp"
+              style="
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -60px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Asado argentino</h2>
+              <p class="ellipsis">
+                Una selección de cortes de carne asados a la parrilla
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/asado.webp" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Asado argentino</h2>
+                <p>Una selección de cortes de carne asados a la parrilla</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/milanesa.png"
+              style="
+                width: 75%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -70px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Milanesa</h2>
+              <p class="ellipsis">
+                Carne empanizada y frita, similar a una schnitzel, servida con
+                ensalada
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/milanesa.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Milanesa</h2>
+                <p>
+                  Carne empanizada y frita, similar a una schnitzel, servida con
+                  ensalada
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/matambre.png"
+              style="
+                width: 65%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -55px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Matambre</h2>
+              <p class="ellipsis">
+                Un corte de carne relleno y enrollado, cocido a la parrilla o al
+                horno.
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/matambre.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Matambre</h2>
+                <p>
+                  Un corte de carne relleno y enrollado, cocido a la parrilla o
+                  al horno.
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/canelones-pavo.png"
+              style="
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -30px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Canelones de pavo</h2>
+              <p class="ellipsis">
+                Deliciosos canelones rellenos con suave carne de pavo
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/canelones-pavo.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Canelones de pavo</h2>
+                <p>Deliciosos canelones rellenos con suave carne de pavo</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/empanadas.webp"
+              style="
+                width: 70%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -80px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Empanadas de carne</h2>
+              <p class="ellipsis">
+                Empanadas rellenas con jugosa carne sazonada y condimentada
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/empanadas.webp" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Empanadas de carne</h2>
+                <p>
+                  Empanadas rellenas con jugosa carne sazonada y condimentada
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/sorrentinos.png"
+              style="
+                width: 80%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -60px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Sorrentinos</h2>
+              <p class="ellipsis">
+                Delicada pasta rellena similar a los raviolis, con un toque
+                argentino. Estos suculentos discos de pasta están rellenos de
+                una exquisita combinación de carnes, queso y especias, creando
+                una explosión de sabores en cada mordisco
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/sorrentinos.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Sorrentinos</h2>
+                <p>
+                  Delicada pasta rellena similar a los raviolis, con un toque
+                  argentino. Estos suculentos discos de pasta están rellenos de
+                  una exquisita combinación de carnes, queso y especias, creando
+                  una explosión de sabores en cada mordisco
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/pastel-papas-calabaza.png"
+              style="
+                width: 55%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -45px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Pastel de papas</h2>
+              <p class="ellipsis">
+                Delicioso pastel que combina capas de puré de papas suave y
+                cremoso con rebanadas de calabaza y carne picada tierna y
+                sabrosa
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/pastel-papas-calabaza.png"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Pastel de papas</h2>
+                <p>
+                  Delicioso pastel que combina capas de puré de papas suave y
+                  cremoso con rebanadas de calabaza y carne picada tierna y
+                  sabrosa
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pizzas_container active" id="pizzasContainer">
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/margarita.webp"
+              style="
+                width: 60%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -40px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Margarita</h2>
+              <p class="ellipsis">
+                Mozzarella, tomate fresco, albahaca y aceite de oliva
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/margarita.webp" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Margarita</h2>
+                <p>Mozzarella, tomate fresco, albahaca y aceite de oliva</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/pepperoni.PNG"
+              style="
+                width: 60%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -40px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Pepperoni</h2>
+              <p class="ellipsis">Mozzarella y pepperoni</p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/pepperoni.PNG" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Pepperoni</h2>
+                <p>Mozzarella y pepperoni</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/hawaiana.png"
+              style="
+                width: 60%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -45px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Hawaiana</h2>
+              <p class="ellipsis">Mozzarella, jamón y piña</p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/hawaiana.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Hawaiana</h2>
+                <p>Mozzarella, jamón y piña</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/vegetariana.png"
+              style="
+                width: 60%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -50px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Vegetariana</h2>
+              <p class="ellipsis">
+                Mozzarella, tomate, champiñones, pimientos, cebolla y aceitunas
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/vegetariana.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Vegetariana</h2>
+                <p>
+                  Mozzarella, tomate, champiñones, pimientos, cebolla y
+                  aceitunas
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/cuatro-quesos.png"
+              style="
+                width: 65%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -50px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cuatro quesos</h2>
+              <p class="ellipsis">
+                Mozzarella, queso azul, queso de cabra y queso parmesano
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/cuatro-quesos.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cuatro quesos</h2>
+                <p>Mozzarella, queso azul, queso de cabra y queso parmesano</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/mediterranea.png"
+              style="
+                width: 65%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -50px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Mediterranea</h2>
+              <p class="ellipsis">
+                Mozzarella, aceitunas, tomates secos, espinacas y queso feta
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/mediterranea.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Mediterranea</h2>
+                <p>
+                  Mozzarella, aceitunas, tomates secos, espinacas y queso feta
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/caprese.png"
+              style="
+                width: 55%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -45px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Caprese</h2>
+              <p class="ellipsis">
+                Mozzarella, tomate fresco, albahaca y aceite de oliva, sin salsa
+                de tomate
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/caprese.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Caprese</h2>
+                <p>
+                  Mozzarella, tomate fresco, albahaca y aceite de oliva, sin
+                  salsa de tomate
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hamburguesas_container active" id="burguerContainer">
+          <div class="box_product" onclick="showPreview(this)">
+            <img src="img/hamburguesa-simple.png" class="box-img" alt="" />
+            <div class="box_content">
+              <h2 class="card-tittle">Hamburguesa clasica</h2>
+              <p class="ellipsis">
+                Carne de res, Pan de hamburguesa, Lechuga, Tomate, Cebolla,
+                Queso cheddar, Pepinillos, Salsa de hamburguesa
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/hamburguesa-simple.png"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Hamburguesa clasica</h2>
+                <p>
+                  Carne de res, Pan de hamburguesa, Lechuga, Tomate, Cebolla,
+                  Queso cheddar, Pepinillos, Salsa de hamburguesa
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/hamburguesa-whopper.png"
+              style="
+                width: 70%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -60px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Hamburguesa whopper</h2>
+              <p class="ellipsis">
+                Carne de res a la parrilla, Pan de hamburguesa, Lechuga fresca,
+                Tomate en rodajas, Cebolla en rodajas, Pepinillos en rodajas,
+                Queso americano (opcional), Mayonesa, Kétchup, Mostaza
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/hamburguesa-whopper.png"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Hamburguesa whopper</h2>
+                <p>
+                  Carne de res a la parrilla, Pan de hamburguesa, Lechuga
+                  fresca, Tomate en rodajas, Cebolla en rodajas, Pepinillos en
+                  rodajas, Queso americano (opcional), Mayonesa, Kétchup,
+                  Mostaza
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/Stacker-Triple.png"
+              style="width: 100%; left: 50%; transform: translateX(-50%)"
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Hamburguesa triple</h2>
+              <p class="ellipsis">
+                Tres hamburguesas de carne de res, Pan de hamburguesa, Tocino
+                crujiente, Queso cheddar o queso americano, Lechuga, Tomate,
+                Cebolla (opcional), Pepinillos (opcional), Salsa
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/Stacker-Triple.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Hamburguesa triple</h2>
+                <p>
+                  Tres hamburguesas de carne de res, Pan de hamburguesa, Tocino
+                  crujiente, Queso cheddar o queso americano, Lechuga, Tomate,
+                  Cebolla (opcional), Pepinillos (opcional), Salsa
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/hamburguesa-bbq.png"
+              style="
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -100px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Hamburguesa BBQ</h2>
+              <p class="ellipsis">
+                Carne de res, Pan de hamburguesa, Tocino, Queso cheddar, Cebolla
+                a la parrilla, Salsa barbacoa, Lechuga, Tomate
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/hamburguesa-bbq.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Hamburguesa BBQ</h2>
+                <p>
+                  Carne de res, Pan de hamburguesa, Tocino, Queso cheddar,
+                  Cebolla a la parrilla, Salsa barbacoa, Lechuga, Tomate
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/hamburguesa-vegetariana.png"
+              style="
+                width: 70%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -40px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Hamburguesa vegetariana</h2>
+              <p class="ellipsis">
+                Hamburguesa de frijoles negros o lentejas, Pan de hamburguesa
+                integral, Aguacate, Lechuga, Tomate, Cebolla morada, Queso
+                vegano, Salsa de yogur
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/hamburguesa-vegetariana.png"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Hamburguesa vegetariana</h2>
+                <p>
+                  Hamburguesa de frijoles negros o lentejas, Pan de hamburguesa
+                  integral, Aguacate, Lechuga, Tomate, Cebolla morada, Queso
+                  vegano, Salsa de yogur
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/hamburguesa-huevo.webp"
+              style="
+                width: 70%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -70px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Hamburguesa huevo y tocino</h2>
+              <p class="ellipsis">
+                Carne de res, Pan de hamburguesa, Huevo frito, Tocino, Queso
+                cheddar, Lechuga, Tomate, Mayonesa
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/hamburguesa-huevo.webp"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Hamburguesa con huevo y tocino</h2>
+                <p>
+                  Carne de res, Pan de hamburguesa, Huevo frito, Tocino, Queso
+                  cheddar, Lechuga, Tomate, Mayonesa
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/hamburguesa-jalapeños.webp"
+              style="
+                width: 70%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -60px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Hamburguesa jalapeños y huevo</h2>
+              <p class="ellipsis">
+                Carne de res, Pan de hamburguesa, Queso pepper jack, Jalapeños
+                en rodajas, Cebolla roja, Aguacate, Salsa picante, Lechuga
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/hamburguesa-jalapeños.webp"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Hamburguesa con jalapeños y huevo</h2>
+                <p>
+                  Carne de res, Pan de hamburguesa, Queso pepper jack, Jalapeños
+                  en rodajas, Cebolla roja, Aguacate, Salsa picante, Lechuga
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img src="img/papas.png" class="box-img" alt="" />
+            <div class="box_content">
+              <h2 class="card-tittle">Papas fritas</h2>
+              <p class="ellipsis">
+                Tazon de papas fritas tradicionales cantidad para dos personas
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/papas.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Papas fritas</h2>
+                <p>
+                  Tazon de papas fritas tradicionales cantidad para dos personas
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bebidas_container active" id="bebidasContainer">
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/cocacola-350-vidrio.png"
+              style="
+                width: 65%;
+                top: -45px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Coca-cola 350ml</h2>
+              <p class="ellipsis">Botella de coca-cola de 350ml</p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/cocacola-350-vidrio.png"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Coca-cola 350ml</h2>
+                <p>Botella de coca-cola de 350ml</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/seven-up.png"
+              style="
+                width: 60%;
+                top: -30px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Seven up 500ml</h2>
+              <p class="ellipsis">Botella de seven up 500ml</p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/seven-up.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Seven up 500ml</h2>
+                <p>Botella de seven up de 500ml</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/fanta.png"
+              style="
+                width: 75%;
+                top: -50px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Fanta 500ml</h2>
+              <p class="ellipsis">Botella de fanta de 500ml</p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/fanta.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Fanta 500ml</h2>
+                <p>Botella de fanta de 500ml</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/pepsi.png"
+              style="
+                width: 60%;
+                top: -35px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Pepsi 250ml</h2>
+              <p class="ellipsis">Botella de Pepsi de 250ml</p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/pepsi.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Pepsi 250ml</h2>
+                <p>Botella de Pepsi de 250ml</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/agua-mineral-sin-gas.png"
+              style="
+                width: 60%;
+                top: -45px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Agua sin gas 500ml</h2>
+              <p class="ellipsis">Botella de Agua sin gas de 500ml</p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/agua-mineral-sin-gas.png"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Agua sin gas 500ml</h2>
+                <p>Botella de Agua sin gas de 500ml</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="postres_container active" id="postresContainer">
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/alfajor-havanna.png"
+              style="
+                width: 65%;
+                top: -45px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Alfajor de chocolate</h2>
+              <p class="ellipsis">
+                Delicioso alfajor de dos galletas unidas por un dulce de leche y
+                cubiertas de azúcar en polvo o chocolate.
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/alfajor-havanna.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Alfajor de chocolate</h2>
+                <p>
+                  Delicioso alfajor de dos galletas unidas por un dulce de leche
+                  y cubiertas de azúcar en polvo o chocolate.
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/brigadeiro.webp"
+              style="
+                width: 50%;
+                top: -40px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Brigadeiros</h2>
+              <p class="ellipsis">
+                Bolitas de chocolate y leche condensada cubiertas de granulados
+                de chocolate
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/brigadeiro.webp" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Brigadeiros</h2>
+                <p>
+                  Bolitas de chocolate y leche condensada cubiertas de
+                  granulados de chocolate
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/pastel-tres-leches.png"
+              style="
+                width: 55%;
+                top: -35px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Pastel tres leches</h2>
+              <p class="ellipsis">
+                Esponjosa y muy húmeda, mezcla de tres leches, con crema batida
+                y frutas
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/pastel-tres-leches.png"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Pastel tres leches</h2>
+                <p>
+                  Esponjosa y muy húmeda, mezcla de tres leches, con crema
+                  batida y frutas
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/picarones.webp"
+              style="
+                width: 75%;
+                top: -65px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Picarones</h2>
+              <p class="ellipsis">
+                Donuts hechos con una masa a base de zapallo (calabaza) y camote
+                (batata), fritas y servidas con una salsa dulce de chancaca
+                (jarabe de azúcar de caña)
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/picarones.webp" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Picarones</h2>
+                <p>
+                  Donuts hechos con una masa a base de zapallo (calabaza) y
+                  camote (batata), fritas y servidas con una salsa dulce de
+                  chancaca (jarabe de azúcar de caña)
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/arroz-con-leche.webp"
+              style="
+                width: 65%;
+                top: -35px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Arroz con leche</h2>
+              <p class="ellipsis">
+                Preparación de arroz cocido en leche con azúcar, canela y
+                vainilla
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/arroz-con-leche.webp" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Arroz con leche</h2>
+                <p>
+                  Preparación de arroz cocido en leche con azúcar, canela y
+                  vainilla
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/cocadas.png"
+              style="
+                width: 90%;
+                top: -70px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cocadas</h2>
+              <p class="ellipsis">Dulces hechos con coco rallado y azúcar</p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/cocadas.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cocadas</h2>
+                <p>Dulces hechos con coco rallado y azúcar</p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/quesillo.png"
+              style="
+                width: 70%;
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Quesillo</h2>
+              <p class="ellipsis">
+                Un postre típico de Venezuela, similar al flan. Se prepara con
+                leche, huevos, azúcar y esencia de vainilla. Es muy cremoso y se
+                sirve con un caramelo líquido
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$500</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar">
+                Agregar al carrito<i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img src="img/quesillo.png" class="preview-img" alt="" />
+              <div class="preview_content">
+                <h2 class="card-tittle">Quesillo</h2>
+                <p>
+                  Un postre típico de Venezuela, similar al flan. Se prepara con
+                  leche, huevos, azúcar y esencia de vainilla. Es muy cremoso y
+                  se sirve con un caramelo líquido
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$500</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script src="beta.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>

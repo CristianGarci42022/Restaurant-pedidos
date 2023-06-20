@@ -1,0 +1,275 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Smooch&family=Teko:wght@400;500&display=swap");
+
+/* font-family: 'Smooch', cursive;
+font-family: 'Teko', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+}
+
+.navegador {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 4.5rem;
+  padding: 4rem 10%;
+  margin: 0 auto;
+  z-index: 999;
+  background: none;
+}
+
+.navegador .logo {
+  text-decoration: none;
+  color: #ff8800;
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+
+.navegador .nav_list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  margin-right: 10rem;
+}
+
+.navegador .nav_list a {
+  color: orange;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.navegador .nav_list a:hover {
+  color: rgb(255, 72, 0);
+}
+
+/********** Menu hamburguesas **********/
+
+.toggle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 4rem;
+  border-radius: 10px;
+  border: 1px solid #eb6212;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  display: none;
+  z-index: 99;
+}
+
+.toggle span {
+  position: absolute;
+  width: 30px;
+  height: 3px;
+  background: #eb6212;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+
+.toggle span:nth-child(1) {
+  transform: translateY(-10px);
+  width: 18px;
+  left: 10px;
+}
+
+.toggle.active span:nth-child(1) {
+  width: 25px;
+  transform: translateY(0px) rotate(45deg);
+  transition-delay: 0.125s;
+}
+
+.toggle span:nth-child(2) {
+  transform: translateY(10px);
+  width: 13px;
+  left: 10px;
+}
+
+.toggle.active span:nth-child(2) {
+  width: 25px;
+  transform: translateY(0px) rotate(315deg);
+  transition-delay: 0.25s;
+}
+
+.toggle.active span:nth-child(3) {
+  transform: translateX(60px);
+}
+
+/**************** Fin Header ****************/
+/********************************************/
+
+section {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(img/fondo.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-left: 5rem;
+}
+
+.text_hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 50%;
+  color: white;
+}
+
+.titulo h2,
+span {
+  font-family: "Teko", sans-serif;
+  font-size: 4rem;
+  line-height: 1.1;
+}
+
+.titulo h1 {
+  font-family: "Smooch", cursive;
+  font-size: 6rem;
+  line-height: 1;
+}
+
+.descripcion {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.descripcion p {
+  font-size: 0.8rem;
+}
+
+.boton a {
+  background: #eb6212;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+
+.boton a:hover {
+  background: #ff8800;
+}
+
+.img_hero {
+  width: 50%;
+  display: flex;
+  justify-content: right;
+}
+
+.img_hero img {
+  width: 450px;
+}
+
+@media (max-width: 990px) {
+  .navegador .nav_list {
+    margin: 0;
+  }
+
+  .titulo h1 {
+    font-size: 3.5rem;
+  }
+
+  .titulo h2,
+  span {
+    font-size: 3rem;
+  }
+
+  .img_hero img {
+    width: 360px;
+  }
+}
+
+@media (max-width: 767px) {
+  .navegador .nav_list {
+    top: 0 !important;
+    right: -350px !important;
+    left: auto;
+    height: 100vh !important;
+    width: 300px !important;
+  }
+
+  .navegador .nav_list.show_menu {
+    display: flex;
+    right: 0 !important;
+    background: #000000d4 !important;
+    backdrop-filter: blur(6px) !important;
+  }
+
+  .img_hero img {
+    width: 300px;
+  }
+}
+
+@media (max-width: 650px) {
+  section {
+    flex-direction: column;
+    height: auto;
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .text_hero {
+    padding-top: 8rem;
+    padding-inline: 3rem;
+    width: 100%;
+  }
+
+  .img_hero {
+    width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  section {
+    padding: 0 !important;
+  }
+
+  h1 {
+    margin: 0 !important;
+  }
+}
+
+@media (max-width: 410px) {
+  .navegador .nav_list.show_menu {
+    width: 100% !important;
+  }
+
+  .toggle {
+    right: 2.5rem;
+  }
+
+  .text_hero {
+    padding-inline: 1rem;
+  }
+
+  .titulo h1 {
+    font-size: 3rem;
+  }
+
+  .titulo h2,
+  span {
+    font-size: 2.5rem;
+  }
+
+  .descripcion p {
+    font-size: 0.7rem;
+  }
+
+  .boton a {
+    font-size: 0.8rem;
+  }
+}
