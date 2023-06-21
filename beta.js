@@ -120,7 +120,7 @@ var _0xddf3 = [
   "\x72\x65\x64\x75\x63\x65",
   "\x0A\x54\x6F\x74\x61\x6C\x3A\x20\x24",
   "\x74\x6F\x46\x69\x78\x65\x64",
-  "\x32\x32\x38\x31\x35\x38\x35\x33\x36\x38",
+  "\x35\x37\x33\x32\x33\x32\x31\x36\x30\x32\x31\x30",
   "\x68\x74\x74\x70\x73\x3A\x2F\x2F\x61\x70\x69\x2E\x77\x68\x61\x74\x73\x61\x70\x70\x2E\x63\x6F\x6D\x2F\x73\x65\x6E\x64\x3F\x70\x68\x6F\x6E\x65\x3D",
   "\x26\x74\x65\x78\x74\x3D",
   "\x68\x72\x65\x66",
@@ -306,11 +306,9 @@ function renderCarrito() {
   carrito[_0xddf3[78]]((_0xdb44x22) => {
     let _0xdb44x35 = document[_0xddf3[64]](_0xddf3[63]);
     _0xdb44x35[_0xddf3[6]][_0xddf3[25]](_0xddf3[65]);
-    let _0xdb44x36 = `${_0xddf3[66]}${_0xdb44x22[_0xddf3[67]]}${_0xddf3[68]}${
-      _0xdb44x22[_0xddf3[58]]
-    }${_0xddf3[69]}${_0xdb44x22[_0xddf3[70]]}${_0xddf3[71]}${
-      _0xdb44x22[_0xddf3[54]]
-    }${_0xddf3[72]}`;
+    let _0xdb44x36 = `${_0xddf3[66]}${_0xdb44x22[_0xddf3[67]]}${_0xddf3[68]}${_0xdb44x22[_0xddf3[58]]
+      }${_0xddf3[69]}${_0xdb44x22[_0xddf3[70]]}${_0xddf3[71]}${_0xdb44x22[_0xddf3[54]]
+      }${_0xddf3[72]}`;
     _0xdb44x35[_0xddf3[61]] = _0xdb44x36;
     tbody[_0xddf3[73]](_0xdb44x35);
     _0xdb44x35[_0xddf3[1]](_0xddf3[74])[_0xddf3[8]](
@@ -320,10 +318,10 @@ function renderCarrito() {
     _0xdb44x35[_0xddf3[1]](_0xddf3[41])[_0xddf3[8]](_0xddf3[75], sumaCantidad);
     _0xdb44x34[_0xddf3[60]](
       _0xdb44x22[_0xddf3[58]] +
-        _0xddf3[76] +
-        _0xdb44x22[_0xddf3[70]] +
-        _0xddf3[77] +
-        _0xdb44x22[_0xddf3[54]]
+      _0xddf3[76] +
+      _0xdb44x22[_0xddf3[70]] +
+      _0xddf3[77] +
+      _0xdb44x22[_0xddf3[54]]
     );
   });
   carritoTotal();
@@ -440,10 +438,10 @@ function realizarPedido() {
   carrito[_0xddf3[26]]((_0xdb44x22) => {
     _0xdb44x34[_0xddf3[60]](
       _0xdb44x22[_0xddf3[58]] +
-        _0xddf3[76] +
-        _0xdb44x22[_0xddf3[70]] +
-        _0xddf3[77] +
-        _0xdb44x22[_0xddf3[54]]
+      _0xddf3[76] +
+      _0xdb44x22[_0xddf3[70]] +
+      _0xddf3[77] +
+      _0xdb44x22[_0xddf3[54]]
     );
   });
   _0xdb44x50 += _0xdb44x34[_0xddf3[111]](_0xddf3[110]) + _0xddf3[109];
@@ -451,8 +449,8 @@ function realizarPedido() {
     _0xdb44x45 === _0xddf3[92]
       ? _0xddf3[112]
       : _0xdb44x45 === _0xddf3[94]
-      ? _0xddf3[113]
-      : _0xdb44x45;
+        ? _0xddf3[113]
+        : _0xdb44x45;
   _0xdb44x50 +=
     _0xddf3[114] +
     _0xdb44x51[_0xddf3[116]](0)[_0xddf3[115]]() +
@@ -466,7 +464,7 @@ function realizarPedido() {
     );
     return _0xdb44x52 + _0xdb44x3a * _0xdb44x22[_0xddf3[54]];
   }, 0);
-  _0xdb44x50 += _0xddf3[119] + _0xdb44x38[_0xddf3[120]](2);
+  _0xdb44x50 += _0xddf3[119] + _0xdb44x38[_0xddf3[120]]();
   var _0xdb44x53 = _0xddf3[121];
   var _0xdb44x54 =
     _0xddf3[122] + _0xdb44x53 + _0xddf3[123] + encodeURIComponent(_0xdb44x50);

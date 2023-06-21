@@ -1,0 +1,519 @@
+function mostrarCamposPedido() {
+	const _0xdb44x45 = document[_0xddf3[15]](_0xddf3[88])[_0xddf3[59]];
+	const _0xdb44x46 = document[_0xddf3[15]](_0xddf3[89]);
+	_0xdb44x46[_0xddf3[61]] = _0xddf3[62];
+	if (_0xdb44x45 === _0xddf3[90]) {
+	  _0xdb44x46[_0xddf3[61]] = `${_0xddf3[91]}`;
+	} else {
+	  if (_0xdb44x45 === _0xddf3[92]) {
+		_0xdb44x46[_0xddf3[61]] = `${_0xddf3[93]}`;
+	  } else {
+		if (_0xdb44x45 === _0xddf3[94]) {
+		  _0xdb44x46[_0xddf3[61]] = `${_0xddf3[95]}`;
+		}
+	  }
+	}
+  }
+  function realizarPedido() {
+	if (carrito[_0xddf3[56]] === 0) {
+	  alert(_0xddf3[96]);
+	  return;
+	}
+	const _0xdb44x48 = document[_0xddf3[15]](_0xddf3[88]);
+	const _0xdb44x49 = _0xdb44x48[_0xddf3[59]];
+	if (_0xdb44x49 === _0xddf3[62]) {
+	  alert(_0xddf3[97]);
+	  return;
+	}
+	var _0xdb44x4a = document[_0xddf3[15]](_0xddf3[98]);
+	var _0xdb44x4b = _0xdb44x4a[_0xddf3[59]];
+	if (!/^[0-9]+$/[_0xddf3[99]](_0xdb44x4b)) {
+	  alert(_0xddf3[100]);
+	  return;
+	}
+	const _0xdb44x45 = document[_0xddf3[15]](_0xddf3[88])[_0xddf3[59]];
+	let _0xdb44x4c = _0xddf3[62];
+	if (_0xdb44x45 === _0xddf3[90]) {
+	  const _0xdb44x4d = document[_0xddf3[15]](_0xddf3[101])[_0xddf3[59]];
+	  _0xdb44x4c = _0xddf3[102] + _0xdb44x4d;
+	} else {
+	  if (_0xdb44x45 === _0xddf3[92]) {
+		const _0xdb44x4e = document[_0xddf3[15]](_0xddf3[103])[_0xddf3[59]];
+		_0xdb44x4c = _0xddf3[104] + _0xdb44x4e;
+	  } else {
+		if (_0xdb44x45 === _0xddf3[94]) {
+		  const _0xdb44x4e = document[_0xddf3[15]](_0xddf3[103])[_0xddf3[59]];
+		  const _0xdb44x4f = document[_0xddf3[15]](_0xddf3[105])[_0xddf3[59]];
+		  const _0xdb44x4b = document[_0xddf3[15]](_0xddf3[98])[_0xddf3[59]];
+		  _0xdb44x4c =
+			_0xddf3[104] +
+			_0xdb44x4e +
+			_0xddf3[106] +
+			_0xdb44x4f +
+			_0xddf3[107] +
+			_0xdb44x4b;
+		}
+	  }
+	}
+	var _0xdb44x50 = _0xddf3[108] + _0xddf3[109];
+	let _0xdb44x34 = [];
+	carrito[_0xddf3[26]]((_0xdb44x22) => {
+	  _0xdb44x34[_0xddf3[60]](
+		_0xdb44x22[_0xddf3[58]] +
+		_0xddf3[76] +
+		_0xdb44x22[_0xddf3[70]] +
+		_0xddf3[77] +
+		_0xdb44x22[_0xddf3[54]]
+	  );
+	});
+	_0xdb44x50 += _0xdb44x34[_0xddf3[111]](_0xddf3[110]) + _0xddf3[109];
+	const _0xdb44x51 =
+	  _0xdb44x45 === _0xddf3[92]
+		? _0xddf3[112]
+		: _0xdb44x45 === _0xddf3[94]
+		  ? _0xddf3[113]
+		  : _0xdb44x45;
+	_0xdb44x50 +=
+	  _0xddf3[114] +
+	  _0xdb44x51[_0xddf3[116]](0)[_0xddf3[115]]() +
+	  _0xdb44x51[_0xddf3[117]](1) +
+	  _0xddf3[110] +
+	  _0xdb44x4c +
+	  _0xddf3[110];
+	const _0xdb44x38 = carrito[_0xddf3[118]]((_0xdb44x52, _0xdb44x22) => {
+	  const _0xdb44x3a = Number(
+		_0xdb44x22[_0xddf3[70]][_0xddf3[81]](_0xddf3[80], _0xddf3[62])
+	  );
+	  return _0xdb44x52 + _0xdb44x3a * _0xdb44x22[_0xddf3[54]];
+	}, 0);
+	_0xdb44x50 += _0xddf3[119] + _0xdb44x38[_0xddf3[120]](2);
+	var _0xdb44x53 = _0xddf3[121];
+	var _0xdb44x54 =
+	  _0xddf3[122] + _0xdb44x53 + _0xddf3[123] + encodeURIComponent(_0xdb44x50);
+	window[_0xddf3[125]][_0xddf3[124]] = _0xdb44x54;
+	console[_0xddf3[126]](
+	  _0xdb44x50 + _0xddf3[119] + _0xdb44x38[_0xddf3[120]](2)
+	);
+  }
+  function showPreview(_0xdb44x56) {
+	var _0xdb44x57 = _0xdb44x56[_0xddf3[1]](_0xddf3[41]);
+	if (document[_0xddf3[127]] === _0xdb44x57) {
+	  return;
+	}
+	var _0xdb44x58 = _0xdb44x56[_0xddf3[128]];
+	var _0xdb44x59 = _0xdb44x58[_0xddf3[1]](_0xddf3[129]);
+	_0xdb44x58[_0xddf3[131]][_0xddf3[130]] = _0xddf3[132];
+	_0xdb44x56[_0xddf3[6]][_0xddf3[25]](_0xddf3[4]);
+	_0xdb44x59[_0xddf3[8]](_0xddf3[3], function () {
+	  closePreview(_0xdb44x56);
+	});
+  }
+  function closePreview(_0xdb44x56) {
+	var _0xdb44x58 = _0xdb44x56[_0xddf3[128]];
+	_0xdb44x58[_0xddf3[131]][_0xddf3[130]] = _0xddf3[133];
+	_0xdb44x56[_0xddf3[6]][_0xddf3[13]](_0xddf3[4]);
+  }
+  -------------------------------------------
+  0
+: 
+".nav_list"
+1
+: 
+"querySelector"
+2
+: 
+".toggle"
+3
+: 
+"click"
+4
+: 
+"active"
+5
+: 
+"toggle"
+6
+: 
+"classList"
+7
+: 
+"show_menu"
+8
+: 
+"addEventListener"
+9
+: 
+"onclick"
+10
+: 
+"id"
+11
+: 
+"target"
+12
+: 
+"nav_list"
+13
+: 
+"remove"
+14
+: 
+"platillosContainer"
+15
+: 
+"getElementById"
+16
+: 
+"pizzasContainer"
+17
+: 
+"burguerContainer"
+18
+: 
+"bebidasContainer"
+19
+: 
+"postresContainer"
+20
+: 
+".platillos_icon"
+21
+: 
+".pizza_icon"
+22
+: 
+".hamburguesa_icon"
+23
+: 
+".bebidas_icon"
+24
+: 
+".postres_icon"
+25
+: 
+"add"
+26
+: 
+"forEach"
+27
+: 
+".btnAgregar"
+28
+: 
+"querySelectorAll"
+29
+: 
+".box_product"
+30
+: 
+".alert"
+31
+: 
+".tbody"
+32
+: 
+".closeBtn"
+33
+: 
+"show"
+34
+: 
+"hide"
+35
+: 
+"stopPropagation"
+36
+: 
+"closest"
+37
+: 
+"textContent"
+38
+: 
+".card-tittle"
+39
+: 
+".precio"
+40
+: 
+"valueAsNumber"
+41
+: 
+".cantidad"
+42
+: 
+"src"
+43
+: 
+".box-img"
+44
+: 
+"data-id"
+45
+: 
+"getAttribute"
+46
+: 
+"currentTarget"
+47
+: 
+".previewCard .btnAgregar"
+48
+: 
+".previewCard"
+49
+: 
+".preview-img"
+50
+: 
+".shopping-cart"
+51
+: 
+"#cart-btn"
+52
+: 
+".cerrarCarrito"
+53
+: 
+"onscroll"
+54
+: 
+"cantidad"
+55
+: 
+"getElementsByClassName"
+56
+: 
+"length"
+57
+: 
+"trim"
+58
+: 
+"tittle"
+59
+: 
+"value"
+60
+: 
+"push"
+61
+: 
+"innerHTML"
+62
+: 
+""
+63
+: 
+"div"
+64
+: 
+"createElement"
+65
+: 
+"itemCarrito"
+66
+: 
+"\r\n      <div class=\"box\">\r\n        <i class=\"fas fa-trash btn-eliminar-item\" style=\"color: red\"></i>\r\n        <img src="
+67
+: 
+"img"
+68
+: 
+" alt=\"\" />\r\n        <div class=\"contenido\">\r\n          <h3 class=\"tittle\">"
+69
+: 
+"</h3>\r\n          <span class=\"precio\">"
+70
+: 
+"precio"
+71
+: 
+"</span>\r\n          <input type=\"number\" min=\"1\" value="
+72
+: 
+" class=\"cantidad\">\r\n        </div>\r\n      </div>\r\n    "
+73
+: 
+"append"
+74
+: 
+".btn-eliminar-item"
+75
+: 
+"change"
+76
+: 
+" - "
+77
+: 
+" - Cantidad: "
+78
+: 
+"map"
+79
+: 
+".total"
+80
+: 
+"$"
+81
+: 
+"replace"
+82
+: 
+"Total : $"
+83
+: 
+".box"
+84
+: 
+".tittle"
+85
+: 
+"splice"
+86
+: 
+".itemCarrito"
+87
+: 
+".num-contador"
+88
+: 
+"tipoPedido"
+89
+: 
+"camposPedido"
+90
+: 
+"mesa"
+91
+: 
+"\r\n      <label for=\"numeroMesa\">Número de mesa:</label>\r\n      <input class=\"tipoPedidoOptionInputs\" type=\"number\" id=\"numeroMesa\" placeholder=\"Ingrese el número de mesa\" required>\r\n    "
+92
+: 
+"llevar"
+93
+: 
+"\r\n      <label for=\"nombreApellido\">Nombre y apellido:</label>\r\n      <input class=\"tipoPedidoOptionInputs\" style=\"\r\n      width: 200px;\" type=\"text\" id=\"nombreApellido\" placeholder=\"Ingrese su nombre y apellido\" required >\r\n    "
+94
+: 
+"domicilio"
+95
+: 
+"\r\n      <label for=\"nombreApellido\">Nombre y apellido:</label>\r\n      <input class=\"tipoPedidoOptionInputs\" type=\"text\" id=\"nombreApellido\" placeholder=\"Ingrese su nombre y apellido\" required>\r\n      <label for=\"direccion\">Dirección:</label>\r\n      <input class=\"tipoPedidoOptionInputs\" type=\"text\" id=\"direccion\" placeholder=\"Ingrese su dirección\" required>\r\n      <label for=\"telefono\">Número de teléfono:</label>\r\n      <input class=\"tipoPedidoOptionInputs\" type=\"tel\" pattern=\"[0-9]+\" title=\"Ingrese solo números\" id=\"telefono\" placeholder=\"Ingrese su número de teléfono\" required>\r\n    "
+96
+: 
+"El carrito está vacío. Agregue productos antes de realizar un pedido."
+97
+: 
+"Debe seleccionar una opción de tipo de pedido."
+98
+: 
+"telefono"
+99
+: 
+"test"
+[100 … 133]
+100
+: 
+"Ingrese solo números en el campo de teléfono."
+101
+: 
+"numeroMesa"
+102
+: 
+"Número de mesa: "
+103
+: 
+"nombreApellido"
+104
+: 
+"Nombre y apellido: "
+105
+: 
+"direccion"
+106
+: 
+"\nDirección: "
+107
+: 
+"\nTeléfono: "
+108
+: 
+"¡Hola! Me gustaría hacer un pedido de los siguientes alimentos:"
+109
+: 
+"\n\n"
+110
+: 
+"\n"
+111
+: 
+"join"
+112
+: 
+"Para llevar"
+113
+: 
+"A domicilio"
+114
+: 
+"Tipo de pedido: "
+115
+: 
+"toUpperCase"
+116
+: 
+"charAt"
+117
+: 
+"slice"
+118
+: 
+"reduce"
+119
+: 
+"\nTotal: $"
+120
+: 
+"toFixed"
+121
+: 
+"573232160210"
+122
+: 
+"https://api.whatsapp.com/send?phone="
+123
+: 
+"&text="
+124
+: 
+"href"
+125
+: 
+"location"
+126
+: 
+"log"
+127
+: 
+"activeElement"
+128
+: 
+"nextElementSibling"
+129
+: 
+".closeButton"
+130
+: 
+"display"
+131
+: 
+"style"
+132
+: 
+"block"
+133
+: 
+"none"

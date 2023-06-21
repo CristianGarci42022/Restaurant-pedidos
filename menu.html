@@ -50,8 +50,8 @@
             onchange="mostrarCamposPedido()"
           >
             <option value="" disabled selected>Elija una opción</option>
-            <option value="mesa">Llevar a mesa</option>
-            <option value="llevar">Para llevar</option>
+            <!-- <option value="mesa">Llevar a mesa</option>
+            <option value="llevar">Para llevar</option> -->
             <option value="domicilio">Para llevar a domicilio</option>
           </select>
         </div>
@@ -83,24 +83,25 @@
 
       <div class="iconos_menu">
         <div class="platillos_icon active" onclick="mostrarPlatillos()">
-          <i class="fas fa-utensils"></i>
-          <p>Platillos</p>
+          <i class="fa-solid fa-regular fa-beer"></i>
+          <p>Cervezas</p>
         </div>
         <div class="pizza_icon" onclick="mostrarPizzas()">
-          <i class="fa-solid fa-pizza-slice"></i>
-          <p>Pizzas</p>
+          <i class="fa-solid fa-regular fa-smoking"></i>
+          <p>Cigarrillos</p>
         </div>
         <div class="hamburguesa_icon" onclick="mostrarBurguers()">
-          <i class="fa-solid fa-burger"></i>
-          <p>Hamburguesas</p>
+          <i class="fa-solid fa-wine-bottle"></i>
+
+          <p>Gaseosas</p>
         </div>
         <div class="bebidas_icon" onclick="mostrarBebidas()">
           <i class="fa-solid fa-wine-glass"></i>
-          <p>Bebidas</p>
+          <p>Licores</p>
         </div>
         <div class="postres_icon" onclick="mostrarPostres()">
-          <i class="fa-solid fa-ice-cream"></i>
-          <p>Postres</p>
+          <i class="fa-solid fa-candy-cane"></i>
+          <p>Galgerias</p>
         </div>
       </div>
 
@@ -108,241 +109,9 @@
         <div class="platillos_container" id="platillosContainer">
           <div class="box_product" onclick="showPreview(this)">
             <img
-              src="img/asado.webp"
+              src="/img/Cervezas/Aguila_Sixpackv2.jpg"
               style="
                 width: 100%;
-                left: 50%;
-                transform: translate(-50%);
-                top: -60px;
-              "
-              class="box-img"
-              alt=""
-            />
-            <div class="box_content">
-              <h2 class="card-tittle">Asado argentino</h2>
-              <p class="ellipsis">
-                Una selección de cortes de carne asados a la parrilla
-              </p>
-              <div class="container_box">
-                <h3 class="precio">$500</h3>
-                <input
-                  type="number"
-                  min="1"
-                  value="1"
-                  class="cantidad"
-                  style="width: 40px; text-align: center"
-                />
-              </div>
-              <button class="btnAgregar" data-id="1">
-                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-            </div>
-          </div>
-          <div id="previewContainer" onclick="closePreview()">
-            <div class="previewCard">
-              <span class="closeButton" onclick="closePreview()">&times;</span>
-              <img src="img/asado.webp" class="preview-img" alt="" />
-              <div class="preview_content">
-                <h2 class="card-tittle">Asado argentino</h2>
-                <p>Una selección de cortes de carne asados a la parrilla</p>
-                <div class="container_box">
-                  <h3 class="precio">$500</h3>
-                  <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    style="width: 40px; text-align: center"
-                  />
-                </div>
-                <button class="btnAgregar" data-id="2">
-                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="box_product" onclick="showPreview(this)">
-            <img
-              src="img/milanesa.png"
-              style="
-                width: 75%;
-                left: 50%;
-                transform: translate(-50%);
-                top: -70px;
-              "
-              class="box-img"
-              alt=""
-            />
-            <div class="box_content">
-              <h2 class="card-tittle">Milanesa</h2>
-              <p class="ellipsis">
-                Carne empanizada y frita, similar a una schnitzel, servida con
-                ensalada
-              </p>
-              <div class="container_box">
-                <h3 class="precio">$500</h3>
-                <input
-                  type="number"
-                  min="1"
-                  value="1"
-                  class="cantidad"
-                  style="width: 40px; text-align: center"
-                />
-              </div>
-              <button class="btnAgregar" data-id="1">
-                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-            </div>
-          </div>
-          <div id="previewContainer" onclick="closePreview()">
-            <div class="previewCard">
-              <span class="closeButton" onclick="closePreview()">&times;</span>
-              <img src="img/milanesa.png" class="preview-img" alt="" />
-              <div class="preview_content">
-                <h2 class="card-tittle">Milanesa</h2>
-                <p>
-                  Carne empanizada y frita, similar a una schnitzel, servida con
-                  ensalada
-                </p>
-                <div class="container_box">
-                  <h3 class="precio">$500</h3>
-                  <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    style="width: 40px; text-align: center"
-                  />
-                </div>
-                <button class="btnAgregar" data-id="2">
-                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="box_product" onclick="showPreview(this)">
-            <img
-              src="img/matambre.png"
-              style="
-                width: 65%;
-                left: 50%;
-                transform: translate(-50%);
-                top: -55px;
-              "
-              class="box-img"
-              alt=""
-            />
-            <div class="box_content">
-              <h2 class="card-tittle">Matambre</h2>
-              <p class="ellipsis">
-                Un corte de carne relleno y enrollado, cocido a la parrilla o al
-                horno.
-              </p>
-              <div class="container_box">
-                <h3 class="precio">$500</h3>
-                <input
-                  type="number"
-                  min="1"
-                  value="1"
-                  class="cantidad"
-                  style="width: 40px; text-align: center"
-                />
-              </div>
-              <button class="btnAgregar" data-id="1">
-                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-            </div>
-          </div>
-          <div id="previewContainer" onclick="closePreview()">
-            <div class="previewCard">
-              <span class="closeButton" onclick="closePreview()">&times;</span>
-              <img src="img/matambre.png" class="preview-img" alt="" />
-              <div class="preview_content">
-                <h2 class="card-tittle">Matambre</h2>
-                <p>
-                  Un corte de carne relleno y enrollado, cocido a la parrilla o
-                  al horno.
-                </p>
-                <div class="container_box">
-                  <h3 class="precio">$500</h3>
-                  <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    style="width: 40px; text-align: center"
-                  />
-                </div>
-                <button class="btnAgregar" data-id="2">
-                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="box_product" onclick="showPreview(this)">
-            <img
-              src="img/canelones-pavo.png"
-              style="
-                width: 100%;
-                left: 50%;
-                transform: translate(-50%);
-                top: -30px;
-              "
-              class="box-img"
-              alt=""
-            />
-            <div class="box_content">
-              <h2 class="card-tittle">Canelones de pavo</h2>
-              <p class="ellipsis">
-                Deliciosos canelones rellenos con suave carne de pavo
-              </p>
-              <div class="container_box">
-                <h3 class="precio">$500</h3>
-                <input
-                  type="number"
-                  min="1"
-                  value="1"
-                  class="cantidad"
-                  style="width: 40px; text-align: center"
-                />
-              </div>
-              <button class="btnAgregar" data-id="1">
-                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-            </div>
-          </div>
-          <div id="previewContainer" onclick="closePreview()">
-            <div class="previewCard">
-              <span class="closeButton" onclick="closePreview()">&times;</span>
-              <img src="img/canelones-pavo.png" class="preview-img" alt="" />
-              <div class="preview_content">
-                <h2 class="card-tittle">Canelones de pavo</h2>
-                <p>Deliciosos canelones rellenos con suave carne de pavo</p>
-                <div class="container_box">
-                  <h3 class="precio">$500</h3>
-                  <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    style="width: 40px; text-align: center"
-                  />
-                </div>
-                <button class="btnAgregar" data-id="2">
-                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="box_product" onclick="showPreview(this)">
-            <img
-              src="img/empanadas.webp"
-              style="
-                width: 70%;
                 left: 50%;
                 transform: translate(-50%);
                 top: -80px;
@@ -351,136 +120,12 @@
               alt=""
             />
             <div class="box_content">
-              <h2 class="card-tittle">Empanadas de carne</h2>
+              <h2 class="card-tittle">Cerveza Aguila sixPack</h2>
               <p class="ellipsis">
-                Empanadas rellenas con jugosa carne sazonada y condimentada
+                Son seis unidades de cerveza tradicional de Aguila en lata
               </p>
               <div class="container_box">
-                <h3 class="precio">$500</h3>
-                <input
-                  type="number"
-                  min="1"
-                  value="1"
-                  class="cantidad"
-                  style="width: 40px; text-align: center"
-                />
-              </div>
-              <button class="btnAgregar" data-id="1">
-                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-            </div>
-          </div>
-          <div id="previewContainer" onclick="closePreview()">
-            <div class="previewCard">
-              <span class="closeButton" onclick="closePreview()">&times;</span>
-              <img src="img/empanadas.webp" class="preview-img" alt="" />
-              <div class="preview_content">
-                <h2 class="card-tittle">Empanadas de carne</h2>
-                <p>
-                  Empanadas rellenas con jugosa carne sazonada y condimentada
-                </p>
-                <div class="container_box">
-                  <h3 class="precio">$500</h3>
-                  <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    style="width: 40px; text-align: center"
-                  />
-                </div>
-                <button class="btnAgregar" data-id="2">
-                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="box_product" onclick="showPreview(this)">
-            <img
-              src="img/sorrentinos.png"
-              style="
-                width: 80%;
-                left: 50%;
-                transform: translate(-50%);
-                top: -60px;
-              "
-              class="box-img"
-              alt=""
-            />
-            <div class="box_content">
-              <h2 class="card-tittle">Sorrentinos</h2>
-              <p class="ellipsis">
-                Delicada pasta rellena similar a los raviolis, con un toque
-                argentino. Estos suculentos discos de pasta están rellenos de
-                una exquisita combinación de carnes, queso y especias, creando
-                una explosión de sabores en cada mordisco
-              </p>
-              <div class="container_box">
-                <h3 class="precio">$500</h3>
-                <input
-                  type="number"
-                  min="1"
-                  value="1"
-                  class="cantidad"
-                  style="width: 40px; text-align: center"
-                />
-              </div>
-              <button class="btnAgregar" data-id="1">
-                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-              </button>
-            </div>
-          </div>
-          <div id="previewContainer" onclick="closePreview()">
-            <div class="previewCard">
-              <span class="closeButton" onclick="closePreview()">&times;</span>
-              <img src="img/sorrentinos.png" class="preview-img" alt="" />
-              <div class="preview_content">
-                <h2 class="card-tittle">Sorrentinos</h2>
-                <p>
-                  Delicada pasta rellena similar a los raviolis, con un toque
-                  argentino. Estos suculentos discos de pasta están rellenos de
-                  una exquisita combinación de carnes, queso y especias, creando
-                  una explosión de sabores en cada mordisco
-                </p>
-                <div class="container_box">
-                  <h3 class="precio">$500</h3>
-                  <input
-                    type="number"
-                    min="1"
-                    value="1"
-                    class="cantidad"
-                    style="width: 40px; text-align: center"
-                  />
-                </div>
-                <button class="btnAgregar" data-id="2">
-                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="box_product" onclick="showPreview(this)">
-            <img
-              src="img/pastel-papas-calabaza.png"
-              style="
-                width: 55%;
-                left: 50%;
-                transform: translate(-50%);
-                top: -45px;
-              "
-              class="box-img"
-              alt=""
-            />
-            <div class="box_content">
-              <h2 class="card-tittle">Pastel de papas</h2>
-              <p class="ellipsis">
-                Delicioso pastel que combina capas de puré de papas suave y
-                cremoso con rebanadas de calabaza y carne picada tierna y
-                sabrosa
-              </p>
-              <div class="container_box">
-                <h3 class="precio">$500</h3>
+                <h3 class="precio">$14000</h3>
                 <input
                   type="number"
                   min="1"
@@ -498,19 +143,511 @@
             <div class="previewCard">
               <span class="closeButton" onclick="closePreview()">&times;</span>
               <img
-                src="img/pastel-papas-calabaza.png"
+                src="img/Cervezas/Aguila_SixpackV2.jpg"
                 class="preview-img"
                 alt=""
               />
               <div class="preview_content">
-                <h2 class="card-tittle">Pastel de papas</h2>
+                <h2 class="card-tittle">Cerveza Aguila sixPack</h2>
                 <p>
-                  Delicioso pastel que combina capas de puré de papas suave y
-                  cremoso con rebanadas de calabaza y carne picada tierna y
-                  sabrosa
+                  Son seis unidades de cerveza tradicional de Aguila en lata
                 </p>
                 <div class="container_box">
-                  <h3 class="precio">$500</h3>
+                  <h3 class="precio">$14000</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/Cervezas/Poker_Sixpackv2.jpg"
+              style="
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -80px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cerveza PokersixPack</h2>
+              <p class="ellipsis">
+                Son seis unidades de cerveza tradicional de poker en lata
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$14000</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/Cervezas/Poker_Sixpackv2.jpg"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cerveza PokersixPack</h2>
+                <p>Son seis unidades de cerveza tradicional de poker en lata</p>
+                <div class="container_box">
+                  <h3 class="precio">$14000</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/Cervezas/Heineken_Sixpack.jpg"
+              style="
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -80px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cerveza Heineken sixPack</h2>
+              <p class="ellipsis">
+                Son seis unidades de cerveza tradicional heineken en lata
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$17800</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/Cervezas/Heineken_Sixpack.jpg"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cerveza Heineken six Pack</h2>
+                <p>Son seis unidades de cerveza tradicional heineken en lata</p>
+                <div class="container_box">
+                  <h3 class="precio">$17800</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/Cervezas/Corona_Sixpack.jpg"
+              style="
+                width: 100%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -80px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cerveza Corona sixPack</h2>
+              <p class="ellipsis">
+                Son seis unidades de cerveza tradicional coronita
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$18600</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/Cervezas/Corona_Sixpack.jpg"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cerveza Corona sixPack</h2>
+                <p>Son seis unidades de cerveza tradicional coronita</p>
+                <div class="container_box">
+                  <h3 class="precio">$18600</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/Cervezas/ClubColombia_SixpackV2.jpg"
+              style="
+                width: 80%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -68px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cerveza Club Colombia sixPack</h2>
+              <p class="ellipsis">
+                Son seis unidades de cerveza tradicional dorada club colombia en
+                lata
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$17000</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/Cervezas/ClubColombia_Sixpack.jpg"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cerveza Club Colombia sixPack</h2>
+                <p>
+                  Son seis unidades de cerveza tradicional dorada club colombia
+                  en lata
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$17000</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/Cervezas/StellaArtois_Sixpack.jpg"
+              style="
+                width: 80%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -68px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cerveza StellaArtois sixPack</h2>
+              <p class="ellipsis">
+                Son seis unidades de cerveza tradicional de stellartois en lata
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$24000</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/Cervezas/StellaArtois_Sixpack.jpg"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cerveza StellaArtois sixPack</h2>
+                <p>
+                  Son seis unidades de cerveza tradicional de stellartois en
+                  lata
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$24000</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/Cervezas/Costeña_Sixpack.jpg"
+              style="
+                width: 80%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -68px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cerveza Costeña SixPack</h2>
+              <p class="ellipsis">
+                Son seis unidades de cerveza tradicional de costeña en lata
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$12000</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/Cervezas/Costeña_Sixpack.jpg"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cerveza Costeña SixPack</h2>
+                <p>
+                  Son seis unidades de cerveza tradicional de stellartois en
+                  lata
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$12000</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/Cervezas/AguilaLight_Sixpack.jpg"
+              style="
+                width: 80%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -68px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cerveza aguilaLight SixPack</h2>
+              <p class="ellipsis">
+                Son seis unidades de cerveza tradicional de aguilaLight en lata
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$9000</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/Cervezas/AguilaLight_Sixpack.jpg"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cerveza AguilaLight SixPack</h2>
+                <p>
+                  Son seis unidades de cerveza tradicional de aguilaLight en
+                  lata
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$9000</h3>
+                  <input
+                    type="number"
+                    min="1"
+                    value="1"
+                    class="cantidad"
+                    style="width: 40px; text-align: center"
+                  />
+                </div>
+                <button class="btnAgregar" data-id="2">
+                  Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="box_product" onclick="showPreview(this)">
+            <img
+              src="img/Cervezas/Budweiser_Sixpack.jpg"
+              style="
+                width: 80%;
+                left: 50%;
+                transform: translate(-50%);
+                top: -68px;
+              "
+              class="box-img"
+              alt=""
+            />
+            <div class="box_content">
+              <h2 class="card-tittle">Cerveza budweiser SixPack</h2>
+              <p class="ellipsis">
+                Son seis unidades de cerveza tradicional de budweiser en lata
+              </p>
+              <div class="container_box">
+                <h3 class="precio">$15000</h3>
+                <input
+                  type="number"
+                  min="1"
+                  value="1"
+                  class="cantidad"
+                  style="width: 40px; text-align: center"
+                />
+              </div>
+              <button class="btnAgregar" data-id="1">
+                Agregar al carrito <i class="fa-solid fa-cart-shopping"></i>
+              </button>
+            </div>
+          </div>
+          <div id="previewContainer" onclick="closePreview()">
+            <div class="previewCard">
+              <span class="closeButton" onclick="closePreview()">&times;</span>
+              <img
+                src="img/Cervezas/Budweiser_Sixpack.jpg"
+                class="preview-img"
+                alt=""
+              />
+              <div class="preview_content">
+                <h2 class="card-tittle">Cerveza Budweiser Sixpack</h2>
+                <p>
+                  Son seis unidades de cerveza tradicional de budweiser en lata
+                </p>
+                <div class="container_box">
+                  <h3 class="precio">$15000</h3>
                   <input
                     type="number"
                     min="1"
